@@ -2,6 +2,9 @@
 # 2. Fauzi Rizki Pratama - 5025211220
 # 3. Beauty Valen Fajri - 5025211227
 
+#Attention: 
+#Before you try this file, you need to install a font named 'VCR OSD Mono' for the better experience. Thanks.
+
 import pygame #A library for creating games and multimedia applications.
 import button #A custom module (presumably defined in a separate file) for creating buttons in the game.
 import requests #A module for making HTTP requests (though it doesn't seem to be used in the code).
