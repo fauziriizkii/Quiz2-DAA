@@ -12,7 +12,6 @@ buffer = 5
 #The buffer space around the Sudoku grid.
 solved =0 #Flag variable.
 #A flag variable to track whether the Sudoku puzzle has been solved.
-
 #You need to define the original number first before run this program.
 grid = [ #A 9x9 2D Grid
     [0, 6, 0, 0, 1, 2, 0, 5, 0],
@@ -64,7 +63,6 @@ def sudoku_board(win):
         pygame.draw.line(win, (0,0,0), (50+50*i, 50), (50+50*i, 500), 2)
         pygame.draw.line(win, (0,0,0), (50, 50+50*i), (500, 50+50*i), 2)
         #The board consists of 9x9 cells with lines separating the 3x3 sub-grids.
-
 def original_number(win):
     #Render the original number of the Sudoku Grid.
     #The original number is stated at the begining of the game.
@@ -139,7 +137,6 @@ def reset_board(win):
                 grid[i][j] = 0
                 pygame.draw.rect(win, background_color, ((j+1)*50 + buffer, (i+1)*50+ buffer,50 -2*buffer , 50 - 2*buffer))
                 pygame.display.update()
-
 def check_answer():
     #To chect whether the Sudoku grid is valid.
     temp = 0
@@ -153,7 +150,6 @@ def check_answer():
                     return False
                 grid[i][j] = temp
     return True
-
 def submit(win):
     #if check_answer is correct, it will show 'This Sudoku is solved.' tect.
     #Which means the Sudoku grid is valid.
@@ -188,6 +184,7 @@ def main():
     # 1. Andrian Tambunan - 5025211018
     # 2. Fauzi Rizki Pratama - 5025211220
     # 3. Beauty Valen Fajri - 5025211227
+    
     textFont = pygame.font.SysFont('VCR OSD Mono', 15)
     text = textFont.render('SudoKuy by :', True, (0,0,0))
     win.blit(text, (48, WIN_WIDTH-47))
@@ -214,8 +211,8 @@ def main():
 
     sudoku_board(win)
     pygame.display.update()
-    check_img = pygame.image.load('check.png').convert_alpha() #Load image
-    solve_img = pygame.image.load('solve.png').convert_alpha() #Load image
+    check_img = pygame.image.load('./Assets/check.png').convert_alpha() #Load image
+    solve_img = pygame.image.load('./Assets/solve.png').convert_alpha() #Load image
 
     check_button = button.Button(WIN_WIDTH-240,WIN_WIDTH-20, check_img, 0.2)
     #Load image
