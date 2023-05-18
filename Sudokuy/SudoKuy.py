@@ -2,17 +2,18 @@
 # 2. Fauzi Rizki Pratama - 5025211220
 # 3. Beauty Valen Fajri - 5025211227
 
-import pygame 
-import button 
-import requests 
+import pygame #A library for creating games and multimedia applications.
+import button #A custom module (presumably defined in a separate file) for creating buttons in the game.
+import requests #A module for making HTTP requests (though it doesn't seem to be used in the code).
 
-WIN_WIDTH = 550 
-background_color = (255,255,255) 
+WIN_WIDTH = 550 #The width of the game window.
+background_color = (255,255,255) #The background color of the game window.
 buffer = 5
+#The buffer space around the Sudoku grid.
+solved =0 #Flag variable.
+#A flag variable to track whether the Sudoku puzzle has been solved.
 
-solved =0 
-
-
+#You need to define the original number first before run this program.
 grid = [ #A 9x9 2D Grid
     [0, 6, 0, 0, 1, 2, 0, 5, 0],
     [0, 5, 3, 7, 8, 0, 0, 0, 0],
@@ -183,6 +184,46 @@ def main():
     pygame.display.set_caption("SudoKuy by Aan Ujik Valen")
     win.fill(background_color)
 
+    #show the Contributors
+    # 1. Andrian Tambunan - 5025211018
+    # 2. Fauzi Rizki Pratama - 5025211220
+    # 3. Beauty Valen Fajri - 5025211227
+    textFont = pygame.font.SysFont('VCR OSD Mono', 15)
+    text = textFont.render('SudoKuy by :', True, (0,0,0))
+    win.blit(text, (48, WIN_WIDTH-47))
+    pygame.display.update()
+    pygame.draw.rect(win, background_color, (500, WIN_WIDTH-8, 200, 200))
+
+    textFont = pygame.font.SysFont('VCR OSD Mono', 15)
+    text = textFont.render('Andrian T.- 5025211018', True, (0,0,0))
+    win.blit(text, (48, WIN_WIDTH-32))
+    pygame.display.update()
+    pygame.draw.rect(win, background_color, (500, WIN_WIDTH-8, 200, 200))
+
+    textFont = pygame.font.SysFont('VCR OSD Mono', 15)
+    text = textFont.render('Fauzi Rizki P.- 5025211220', True, (0,0,0))
+    win.blit(text, (48, WIN_WIDTH-17))
+    pygame.display.update()
+    pygame.draw.rect(win, background_color, (500, WIN_WIDTH-8, 200, 200))
+    
+    textFont = pygame.font.SysFont('VCR OSD Mono', 15)
+    text = textFont.render('Beauty Valen F.- 5025211227', True, (0,0,0))
+    win.blit(text, (48, WIN_WIDTH-2))
+    pygame.display.update()
+    pygame.draw.rect(win, background_color, (500, WIN_WIDTH-8, 200, 200))
+
+    sudoku_board(win)
+    pygame.display.update()
+    check_img = pygame.image.load('check.png').convert_alpha() #Load image
+    solve_img = pygame.image.load('solve.png').convert_alpha() #Load image
+
+    check_button = button.Button(WIN_WIDTH-240,WIN_WIDTH-20, check_img, 0.2)
+    #Load image
+    solve_button = button.Button(WIN_WIDTH-137,WIN_WIDTH-20, solve_img, 0.2) 
+    #Load image
+    check_button.update(win)
+    solve_button.update(win)
+    pygame.display.update()
 
     original_number(win)
     pygame.display.update()
